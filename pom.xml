@@ -395,6 +395,7 @@
 							<exclude>**/.gitignore/**</exclude>
 							<exclude>**/catalog.xml</exclude>
 							<exclude>**/.springBeans</exclude>
+							<exclude>**/README.md</exclude>
 						</excludes>
 					</configuration>
 					<executions>
