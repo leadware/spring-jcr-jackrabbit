@@ -44,7 +44,7 @@
 	<description>Spring Integration for Java Content Repository</description>
 	
 	<!-- Project Version -->
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	
 	<!-- Packaging -->
 	<packaging>jar</packaging>
@@ -155,7 +155,7 @@
 		<maven-gpg-plugin-sign-password>sakazaki</maven-gpg-plugin-sign-password>
 		
 		<!-- Velocity Manev Plugin Verision Property -->
-		<velocity-maven-plugin.version>0.0.1-SNAPSHOT</velocity-maven-plugin.version>
+		<velocity-maven-plugin.version>0.0.2</velocity-maven-plugin.version>
 		
 		
 		<!-- Spring version property -->
