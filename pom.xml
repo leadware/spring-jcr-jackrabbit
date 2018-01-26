@@ -32,7 +32,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<!-- Project group ID -->
-	<groupId>com.kubecloud</groupId>
+	<groupId>net.leadware</groupId>
 	
 	<!-- Project Artifact ID -->
 	<artifactId>spring-jcr-jackrabbit</artifactId>
@@ -44,13 +44,13 @@
 	<description>Spring Integration for Java Content Repository</description>
 	
 	<!-- Project Version -->
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	
 	<!-- Packaging -->
 	<packaging>jar</packaging>
 		
 	<!-- Project source URL -->
-	<url>https://github.com/kube-cloud/spring-jcr-jackrabbit/</url>
+	<url>https://github.com/leadware/spring-jcr-jackrabbit/</url>
 	
 	<!-- Project licence -->
 	<licenses>
@@ -63,28 +63,28 @@
 	
 	<!-- Project scm -->
 	<scm>
-		<connection>scm:git:git@github.com:kube-cloud/spring-jcr-jackrabbit.git</connection>
-		<developerConnection>scm:git:git@github.com:kube-cloud/spring-jcr-jackrabbit.git</developerConnection>
-		<url>git@github.com:kube-cloud/spring-jcr-jackrabbit.git</url>
+		<connection>scm:git:git@github.com:leadware/spring-jcr-jackrabbit.git</connection>
+		<developerConnection>scm:git:git@github.com:leadware/spring-jcr-jackrabbit.git</developerConnection>
+		<url>git@github.com:leadware/spring-jcr-jackrabbit.git</url>
 	</scm>
 	
 	<!-- Project issue managment -->
 	<issueManagement>
 		<system>Jira</system>
-		<url>http://jira.kube-cloud.net</url>
+		<url>http://jira.leadware.net</url>
 	</issueManagement>
 	
 	<!-- Project Continuous integration system -->
 	<ciManagement>
 		<system>Bamboo</system>
-		<url>http://jenkins.kube-cloud.net</url>
+		<url>http://jenkins.leadware.net</url>
 	</ciManagement>
 	
 	<!-- Project developpers -->
 	<developers>
 		<developer>
 			<name>Jean-Jacques ETUNE NGI</name>
-			<email>jetune@kube-cloud.com</email>
+			<email>jetune@leadware.net</email>
 			<organization>Kube Cloud</organization>
 			<timezone>GMT+1</timezone>
 			<roles>
@@ -98,7 +98,7 @@
 	<!-- Project organisation -->
 	<organization>
 		<name>Kube Cloud</name>
-		<url>http://www.kube-cloud.com</url>
+		<url>http://www.leadware.net</url>
 	</organization>
 	
 	<!-- Properties -->
