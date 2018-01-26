@@ -1,0 +1,597 @@
+<!--
+  #%L
+  spring-jcr-jackrabbit Mojo
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2013 - 2018 Kube Cloud
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<!-- Project parent -->
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+	
+	<!-- Pom model version -->
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- Project group ID -->
+	<groupId>net.leadware</groupId>
+	
+	<!-- Project Artifact ID -->
+	<artifactId>spring-jcr-jackrabbit</artifactId>
+	
+	<!-- Project name -->
+	<name>spring-jcr-jackrabbit</name>
+	
+	<!-- Project description -->
+	<description>Spring Integration for Java Content Repository</description>
+	
+	<!-- Project Version -->
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- Packaging -->
+	<packaging>jar</packaging>
+		
+	<!-- Project source URL -->
+	<url>https://github.com/leadware/spring-jcr-jackrabbit/</url>
+	
+	<!-- Project licence -->
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<!-- Project scm -->
+	<scm>
+		<connection>scm:git:git@github.com:leadware/spring-jcr-jackrabbit.git</connection>
+		<developerConnection>scm:git:git@github.com:leadware/spring-jcr-jackrabbit.git</developerConnection>
+		<url>git@github.com:leadware/spring-jcr-jackrabbit.git</url>
+	</scm>
+	
+	<!-- Project issue managment -->
+	<issueManagement>
+		<system>Jira</system>
+		<url>http://jira.leadware.net</url>
+	</issueManagement>
+	
+	<!-- Project Continuous integration system -->
+	<ciManagement>
+		<system>Bamboo</system>
+		<url>http://jenkins.leadware.net</url>
+	</ciManagement>
+	
+	<!-- Project developpers -->
+	<developers>
+		<developer>
+			<name>Jean-Jacques ETUNE NGI</name>
+			<email>jetune@leadware.net</email>
+			<organization>Kube Cloud</organization>
+			<timezone>GMT+1</timezone>
+			<roles>
+				<role>owner</role>
+				<role>Technical lead</role>
+				<role>Developper</role>
+			</roles>
+		</developer>
+	</developers>
+	
+	<!-- Project organisation -->
+	<organization>
+		<name>Kube Cloud</name>
+		<url>http://www.leadware.net</url>
+	</organization>
+	
+	<!-- Properties -->
+	<properties>
+
+		<!-- Required OS Family -->
+		<os.family>unix</os.family>
+		
+		<!-- Minimal Maven version property -->
+		<maven.version>3.0</maven.version>
+		
+		<!-- Source Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Maven builders Dependencies Version -->
+		
+		<!-- JRE Source version Property -->
+		<jre-source.version>1.7</jre-source.version>
+		
+		<!-- JRE Target version Property  -->
+		<jre-target.version>1.7</jre-target.version>
+		
+		<!-- Enforcer maven Plugin version property -->
+		<maven-enforcer-plugin.version>1.4</maven-enforcer-plugin.version>
+		
+		<!-- Maven Source Plugin Version Property -->
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		
+		<!-- Maven Javadoc Version property -->
+		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+		
+		<!-- m2e lifecycle mapping version property -->
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+		
+		<!-- Maven Surefire plugin -->
+		<maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+		
+		<!-- Maven Site Plugin Version Property -->
+		<maven-site-plugin.version>3.7</maven-site-plugin.version>
+		
+		<!-- Maven compiler plugin version property -->
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		
+		<!-- Licence Maven Plugin version property -->
+		<license-maven-plugin.version>1.14</license-maven-plugin.version>
+		
+		<!-- Apache RAT Plugin Version Property -->
+		<apache-rat-plugin.version>0.12</apache-rat-plugin.version>
+		
+		<!-- GPG Version Property -->
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		
+		<!-- GPG Signature Property -->
+		<maven-gpg-plugin-sign-password>sakazaki</maven-gpg-plugin-sign-password>
+		
+		<!-- Velocity Manev Plugin Verision Property -->
+		<velocity-maven-plugin.version>0.0.1-SNAPSHOT</velocity-maven-plugin.version>
+		
+		
+		<!-- Spring version property -->
+		<spring.version>4.2.5.RELEASE</spring.version>
+		
+		<!-- Spring Security version property -->
+		<spring-security.version>4.0.4.RELEASE</spring-security.version>
+		
+		<!-- Spring Module JCR Version Property -->
+		<spring-jcr-jackrabbit.version>0.8a</spring-jcr-jackrabbit.version>
+		
+		<!-- JCR Version property -->
+		<jcr.version>2.0</jcr.version>
+		
+		<!-- Jackrabbit Version Property -->
+		<jackrabbit.version>2.11.3</jackrabbit.version>
+		
+		<!-- Jackrabbit OCM Version Property -->
+		<jackrabbit-ocm.version>1.5.3</jackrabbit-ocm.version>
+		
+		<!-- SLF4J Version Property -->
+		<slf4j.version>1.7.4</slf4j.version>
+		
+		<!-- JUnit Version property -->
+		<junit.version>4.11</junit.version>
+		
+		
+		<!-- JCR Configuration File -->
+		<jcr.environment.target>${basedir}/src/test/resources/META-INF</jcr.environment.target>
+		
+		<!-- JCR Configuration File -->
+		<jcr.configuration>${project.build.directory}/jcr/jackrabbit-datas/repository.xml</jcr.configuration>
+		
+		<!-- JCR Home -->
+		<jcr.home>${project.build.directory}/jcr/jackrabbit-datas</jcr.home>
+		
+		<!-- JCR User Name -->
+		<jcr.userName>admin</jcr.userName>
+		
+		<!-- JCR Password -->
+		<jcr.password>admin</jcr.password>
+		
+	</properties>
+	
+	<!-- Dependences du projet -->
+	<dependencies>
+		
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- Spring TX -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- JCR API -->
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<version>${jcr.version}</version>
+		</dependency>
+		
+		<!-- Jackrabbit Core -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-core</artifactId>
+			<version>${jackrabbit.version}</version>
+		</dependency>
+		
+		<!-- Jackrabbit API -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-api</artifactId>
+			<version>${jackrabbit.version}</version>
+		</dependency>
+		
+		<!-- Jackrabbit OCM -->
+		<dependency>
+			<groupId>org.apache.jackrabbit</groupId>
+			<artifactId>jackrabbit-ocm</artifactId>
+			<version>${jackrabbit-ocm.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- SLF4J API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<!-- SLF4J Log4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<!-- Spring Test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	<!-- Build Area -->
+	<build>
+				
+		<pluginManagement>
+			
+			<plugins>
+				
+				<!-- Maven Javadoc plugin -->
+				<plugin>
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-javadoc-plugin</artifactId>
+				    <version>${maven-javadoc-plugin.version}</version>
+				    <configuration>
+				        <show>private</show>
+				        <nohelp>false</nohelp>
+				    </configuration>
+				    <executions>
+					    	<execution>
+					    		<goals>
+					    			<goal>jar</goal>
+					    		</goals>
+					    	</execution>
+				    </executions>
+				</plugin>
+					
+				<!-- Maven Compiler plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${jre-source.version}</source>
+						<target>${jre-target.version}</target>
+					</configuration>
+				</plugin>
+				
+				<!-- Enforcer Maven plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${maven-enforcer-plugin.version}</version>
+					<executions>
+					    	<execution>
+					    		<id>enforce-maven-3</id>
+					    		<goals>
+					    			<goal>enforce</goal>
+					    		</goals>
+					    		<configuration>
+					    			<rules>
+					    				
+					    				<!-- Required Maven version -->
+					    				<requireMavenVersion>
+					    					<version>${maven.version}</version>
+					    				</requireMavenVersion>
+					    				
+					    				<!-- Required Java version -->
+					    				<requireJavaVersion>
+											<version>${jre-source.version}</version>
+										</requireJavaVersion>
+										
+					    				<!-- Required OS Family -->
+					    				<requireOS>
+											<family>${os.family}</family>
+										</requireOS>
+										
+					    			</rules>
+					    		</configuration>
+					    	</execution>
+				    </executions>
+				</plugin>
+				
+				<!-- Maven Source plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<executions>
+				    	<execution>
+				    		<phase>verify</phase>
+				    		<goals>
+				    			<goal>jar-no-fork</goal>
+				    			<goal>test-jar-no-fork</goal>
+				    		</goals>
+				    	</execution>
+				    </executions>
+				</plugin>
+				
+				<!-- Maven Site Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugin</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+				</plugin>
+				
+				<!-- Maven Surefire Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${license-maven-plugin.version}</version>
+					<configuration>
+						<verbose>true</verbose>
+						<addSvnKeyWords>true</addSvnKeyWords>
+						<licenseName>apache_v2</licenseName>
+						<inceptionYear>2018</inceptionYear>
+						<includes>**/src/main/**,**/src/test/**</includes>
+						<extraExtensions>
+							<xsd>xml</xsd>
+							<handlers>properties</handlers>
+							<schemas>properties</schemas>
+							<md>properties</md>
+						</extraExtensions>
+					</configuration>
+				</plugin>
+				
+				<!-- Apache RAT plugin -->
+				<plugin>
+					<groupId>org.apache.rat</groupId>
+					<artifactId>apache-rat-plugin</artifactId>
+					<version>${apache-rat-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.git/**</exclude>
+							<exclude>**/test/resources/**</exclude>
+							<exclude>**/test/jcr-resources/**</exclude>
+							<exclude>**/.gitignore/**</exclude>
+							<exclude>**/catalog.xml</exclude>
+							<exclude>**/.springBeans</exclude>
+							<exclude>**/README.md</exclude>
+						</excludes>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>verify</phase>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			
+				<!-- GPG Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven-gpg-plugin.version}</version>
+					<configuration>
+						<passphrase>${maven-gpg-plugin-sign-password}</passphrase>
+					</configuration>
+					<executions>
+						<execution>
+							<id>sign-artifact</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				
+				<!-- Velocity maven plugin -->
+				<plugin>
+					<groupId>net.leadware</groupId>
+					<artifactId>velocity-maven-plugin</artifactId>
+					<version>${velocity-maven-plugin.version}</version>
+				</plugin>
+				
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											license-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.5,)
+										</versionRange>
+										<goals>
+											<goal>
+												update-file-header
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>net.leadware</groupId>
+										<artifactId>
+											velocity-maven-plugin
+										</artifactId>
+										<versionRange>
+											[0.0.1-SNAPSHOT,)
+										</versionRange>
+										<goals>
+											<goal>velocity</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			
+			</plugins>
+			
+		</pluginManagement>
+		
+		<plugins>
+			
+			<!-- Licence Maven Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>update-header-sources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>update-file-header</goal>
+						</goals>
+						<configuration>
+							<roots>
+								<root>./</root>
+							</roots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- JRE Source plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			
+			<!-- Maven Source plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+						
+			<!-- Maven Javadoc plugin -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			
+			<!-- Apache RAT plugin -->
+			<plugin>
+				<groupId>org.apache.rat</groupId>
+				<artifactId>apache-rat-plugin</artifactId>
+			</plugin>
+			
+			<!-- GPG Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+			
+			<!-- Velocity maven plugin -->
+			<plugin>
+				<groupId>net.leadware</groupId>
+				<artifactId>velocity-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-jcr-environment.properties</id>
+						<phase>generate-test-resources</phase>
+						<goals>
+							<goal>velocity</goal>
+						</goals>
+						<configuration>
+							<templateFiles>
+								<directory>src/test/jcr-resources</directory>
+								<includes>
+									<include>jcr.properties</include>
+								</includes>
+							</templateFiles>
+							<templateValues>
+								<jcrConfiguration>file://${jcr.configuration}</jcrConfiguration>
+								<jcrHome>file://${jcr.home}</jcrHome>
+								<jrcUserName>${jcr.userName}</jrcUserName>
+								<jcrPassword>${jcr.password}</jcrPassword>
+							</templateValues>
+							<outputDirectory>${jcr.environment.target}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+	
+</project>
