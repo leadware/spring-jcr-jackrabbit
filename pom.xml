@@ -392,7 +392,7 @@
 						<addSvnKeyWords>true</addSvnKeyWords>
 						<licenseName>apache_v2</licenseName>
 						<inceptionYear>2018</inceptionYear>
-						<includes>**/src/main/**,**/src/test/**,**/README.md</includes>
+						<includes>**/src/main/**,**/src/test/**</includes>
 						<extraExtensions>
 							<xsd>xml</xsd>
 							<handlers>properties</handlers>
