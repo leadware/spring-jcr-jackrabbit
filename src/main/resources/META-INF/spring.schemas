@@ -19,5 +19,5 @@
 # limitations under the License.
 # #L%
 ###
-http\://spring.developpers.kube-cloud.com/schema/jcr/spring-jcr.xsd=com/kube-cloud/spring/jcr/handlers/spring-jcr.xsd
-http\://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd=com/kube-cloud/spring/jcr/jackrabbit/handlers/spring-jcr-jackrabbit.xsd
+http\://spring.developpers.leadware.net/schema/jcr/spring-jcr.xsd=net/leadware/spring/jcr/handlers/spring-jcr.xsd
+http\://spring.developpers.leadware.net/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd=net/leadware/spring/jcr/jackrabbit/handlers/spring-jcr-jackrabbit.xsd

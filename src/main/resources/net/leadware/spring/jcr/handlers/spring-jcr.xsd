@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  spring-jcr Mojo
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2018 Kube Cloud
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<xsd:schema xmlns="http://spring.developpers.leadware.net/schema/jcr"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:beans="http://www.springframework.org/schema/beans" 
+		targetNamespace="http://spring.developpers.leadware.net/schema/jcr"
+		elementFormDefault="qualified"
+		attributeFormDefault="unqualified">
+	
+	<!-- Import Spring Beans Namespace -->
+	<xsd:import namespace="http://www.springframework.org/schema/beans" />
+	
+	<!-- Repository Type Definition -->
+	<xsd:complexType name="repositoryType" abstract="true">
+		
+		<!-- Define a complex content -->
+		<xsd:complexContent>
+			
+			<!-- Define Inheritance from Identifiable Spring beans -->
+			<xsd:extension base="beans:identifiedType">
+				
+				<!-- Configuration Attribute -->
+				<xsd:attribute name="configuration-file" type="xsd:string" use="required" />
+				
+			</xsd:extension>
+			
+		</xsd:complexContent>
+		
+	</xsd:complexType>	
+
+	<!-- Session Factory type Definition -->
+	<xsd:complexType name="sessionFactoryType">
+		
+		<!-- Define a complex content -->
+		<xsd:complexContent>
+				
+			<!-- Define Inheritance from Identifiable Spring types -->
+			<xsd:extension base="beans:identifiedType">
+				
+				<!-- Repositry Reference -->
+				<xsd:attribute name="repository" type="xsd:string" use="required" />
+				
+				<!-- Credentials Reference -->
+				<xsd:attribute name="credentials" type="xsd:string" />
+				
+				<!-- Node Type Definitions Reference -->
+				<xsd:attribute name="node-type-definitions" type="xsd:string" />
+				
+			</xsd:extension>
+			
+		</xsd:complexContent>
+		
+	</xsd:complexType>
+	
+	<!-- Define Session factory Element -->
+	<xsd:element name="session-factory" type="sessionFactoryType" />
+	
+</xsd:schema>

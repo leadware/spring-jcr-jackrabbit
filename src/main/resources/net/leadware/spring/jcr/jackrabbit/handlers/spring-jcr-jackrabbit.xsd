@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  spring-jcr Mojo
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2018 Kube Cloud
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  #L%
+  -->
+
+<xsd:schema xmlns="http://spring.developpers.leadware.net/schema/jcr/jackrabbit"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:jcr="http://spring.developpers.leadware.net/schema/jcr"
+		xmlns:beans="http://www.springframework.org/schema/beans" 
+		targetNamespace="http://spring.developpers.leadware.net/schema/jcr/jackrabbit"
+		elementFormDefault="qualified"
+		attributeFormDefault="unqualified">
+	
+	<!-- Import Spring Beans Namespace -->
+	<xsd:import namespace="http://www.springframework.org/schema/beans" />
+	
+	<!-- Import JCR Namespace -->
+	<xsd:import namespace="http://spring.developpers.leadware.net/schema/jcr" />
+	
+	<!-- Jackrabbit Session Factory type -->
+	<xsd:complexType name="jackrabbitSessionFactoryType">
+		
+		<!-- Define a complex content -->
+		<xsd:complexContent>
+				
+			<!-- Define Inheritance from JCR Session Factory Type types -->
+			<xsd:extension base="jcr:sessionFactoryType" />
+			
+		</xsd:complexContent>
+		
+	</xsd:complexType>
+	
+	<!-- Jackrabbit Repository Type Definition -->
+	<xsd:complexType name="jackrabbitRepositoryType">
+		
+		<!-- Define a complex content -->
+		<xsd:complexContent>
+			
+			<!-- Define Inheritance from Identifiable JCR Repository -->
+			<xsd:extension base="jcr:repositoryType">
+				
+				<!-- Configuration Reference -->
+				<xsd:attribute name="configuration-ref" type="xsd:string" use="optional" />
+				
+				<!-- Home Attribute -->
+				<xsd:attribute name="home" type="xsd:string" use="optional" />
+				
+			</xsd:extension>
+			
+		</xsd:complexContent>
+		
+	</xsd:complexType>	
+	
+	<!-- Define repository Element -->
+	<xsd:element name="repository-factory" type="jackrabbitRepositoryType" />
+	
+	<!-- Define Session factory Element -->
+	<xsd:element name="session-factory" type="jackrabbitSessionFactoryType" />
+	
+	<!-- Define Session factory Element -->
+	<xsd:element name="ocm-session-factory">
+		
+		<!-- Define a complex type -->
+		<xsd:complexType>
+			
+			<!-- Define a complex content -->
+			<xsd:complexContent>
+					
+				<!-- Define Inheritance from Jackrabbit Session Factory types -->
+				<xsd:extension base="jackrabbitSessionFactoryType">
+					
+					<!-- Packages Value -->
+					<xsd:attribute name="mapper" type="xsd:string" />
+					
+				</xsd:extension>
+				
+			</xsd:complexContent>
+			
+		</xsd:complexType>
+		
+	</xsd:element>
+	
+	<!-- Define ocm annotation mapper factory Element -->
+	<xsd:element name="ocm-annotation-mapper-factory">
+		
+		<!-- Define a complex type -->
+		<xsd:complexType>
+			
+			<!-- Define a complex content -->
+			<xsd:complexContent>
+					
+				<!-- Define Inheritance from Spring beans types -->
+				<xsd:extension base="beans:identifiedType">
+					
+					<!-- Packages Value -->
+					<xsd:attribute name="packages" type="xsd:string" />
+					
+					<!-- Packages List Reference -->
+					<xsd:attribute name="packages-list" type="xsd:string" />
+					
+				</xsd:extension>
+				
+			</xsd:complexContent>
+			
+		</xsd:complexType>
+		
+	</xsd:element>
+	
+	<!-- Define ocm digester mapper factory Element -->
+	<xsd:element name="ocm-digester-mapper-factory">
+		
+		<!-- Define a complex type -->
+		<xsd:complexType>
+			
+			<!-- Define a complex content -->
+			<xsd:complexContent>
+					
+				<!-- Define Inheritance from Spring beans types -->
+				<xsd:extension base="beans:identifiedType">
+					
+					<!-- Packages Value -->
+					<xsd:attribute name="mappings" type="xsd:string" />
+					
+					<!-- Validate Value -->
+					<xsd:attribute name="validate" default="false">
+						
+						<!-- Define a simple type -->
+						<xsd:simpleType>
+							
+							<!-- Type restrictions -->
+							<xsd:restriction base="xsd:string">
+								
+								<!-- True Value -->
+								<xsd:enumeration value="true" />
+								
+								<!-- False Value -->
+								<xsd:enumeration value="false" />
+								
+							</xsd:restriction>
+							
+						</xsd:simpleType>
+						
+					</xsd:attribute>
+					
+				</xsd:extension>
+				
+			</xsd:complexContent>
+			
+		</xsd:complexType>
+		
+	</xsd:element>
+	
+</xsd:schema>

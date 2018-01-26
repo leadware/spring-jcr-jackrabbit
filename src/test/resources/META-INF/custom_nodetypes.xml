@@ -40,7 +40,7 @@
 <nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
            xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
            xmlns:ocm="http://jackrabbit.apache.org/ocm"
-           xmlns:spring-jcr="http://spring.developpers.kube-cloud.com/schema/jcr">
+           xmlns:spring-jcr="http://spring.developpers.leadware.net/schema/jcr">
 	
 	<nodeType name="spring-jcr:base" isMixin="false" hasOrderableChildNodes="true">
 	   <supertypes>

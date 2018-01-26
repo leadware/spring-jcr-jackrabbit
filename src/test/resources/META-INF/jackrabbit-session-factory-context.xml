@@ -24,13 +24,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jackrabbit="http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit"
-	xmlns:jcr="http://spring.developpers.kube-cloud.com/schema/jcr"
+	xmlns:jackrabbit="http://spring.developpers.leadware.net/schema/jcr/jackrabbit"
+	xmlns:jcr="http://spring.developpers.leadware.net/schema/jcr"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd
-		http://spring.developpers.kube-cloud.com/schema/jcr http://spring.developpers.kube-cloud.com/schema/jcr/spring-jcr.xsd
+		http://spring.developpers.leadware.net/schema/jcr/jackrabbit http://spring.developpers.leadware.net/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd
+		http://spring.developpers.leadware.net/schema/jcr http://spring.developpers.leadware.net/schema/jcr/spring-jcr.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 	
 	<!-- Property Placeholder -->

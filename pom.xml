@@ -154,6 +154,9 @@
 		<!-- GPG Signature Property -->
 		<maven-gpg-plugin-sign-password>sakazaki</maven-gpg-plugin-sign-password>
 		
+		<!-- Velocity Manev Plugin Verision Property -->
+		<velocity-maven-plugin.version>0.0.1-SNAPSHOT</velocity-maven-plugin.version>
+		
 		
 		<!-- Spring version property -->
 		<spring.version>4.2.5.RELEASE</spring.version>
@@ -178,6 +181,22 @@
 		
 		<!-- JUnit Version property -->
 		<junit.version>4.11</junit.version>
+		
+		
+		<!-- JCR Configuration File -->
+		<jcr.environment.target>${basedir}/src/test/resources/META-INF</jcr.environment.target>
+		
+		<!-- JCR Configuration File -->
+		<jcr.configuration>${project.build.directory}/jcr/jackrabbit-datas/repository.xml</jcr.configuration>
+		
+		<!-- JCR Home -->
+		<jcr.home>${project.build.directory}/jcr/jackrabbit-datas</jcr.home>
+		
+		<!-- JCR User Name -->
+		<jcr.userName>admin</jcr.userName>
+		
+		<!-- JCR Password -->
+		<jcr.password>admin</jcr.password>
 		
 	</properties>
 	
@@ -373,7 +392,7 @@
 						<addSvnKeyWords>true</addSvnKeyWords>
 						<licenseName>apache_v2</licenseName>
 						<inceptionYear>2018</inceptionYear>
-						<includes>**/src/main/resources/**,**/README.md</includes>
+						<includes>**/src/main/**,**/src/test/**,**/README.md</includes>
 						<extraExtensions>
 							<xsd>xml</xsd>
 							<handlers>properties</handlers>
@@ -392,6 +411,7 @@
 						<excludes>
 							<exclude>**/.git/**</exclude>
 							<exclude>**/test/resources/**</exclude>
+							<exclude>**/test/jcr-resources/**</exclude>
 							<exclude>**/.gitignore/**</exclude>
 							<exclude>**/catalog.xml</exclude>
 							<exclude>**/.springBeans</exclude>
@@ -426,7 +446,14 @@
 						</execution>
 					</executions>
 				</plugin>
-
+				
+				<!-- Velocity maven plugin -->
+				<plugin>
+					<groupId>net.leadware</groupId>
+					<artifactId>velocity-maven-plugin</artifactId>
+					<version>${velocity-maven-plugin.version}</version>
+				</plugin>
+				
 				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -456,10 +483,28 @@
 										<ignore />
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>net.leadware</groupId>
+										<artifactId>
+											velocity-maven-plugin
+										</artifactId>
+										<versionRange>
+											[0.0.1-SNAPSHOT,)
+										</versionRange>
+										<goals>
+											<goal>velocity</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
+			
 			</plugins>
 			
 		</pluginManagement>
@@ -514,6 +559,36 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+			
+			<!-- Velocity maven plugin -->
+			<plugin>
+				<groupId>net.leadware</groupId>
+				<artifactId>velocity-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-jcr-environment.properties</id>
+						<phase>generate-test-resources</phase>
+						<goals>
+							<goal>velocity</goal>
+						</goals>
+						<configuration>
+							<templateFiles>
+								<directory>src/test/jcr-resources</directory>
+								<includes>
+									<include>jcr.properties</include>
+								</includes>
+							</templateFiles>
+							<templateValues>
+								<jcrConfiguration>file://${jcr.configuration}</jcrConfiguration>
+								<jcrHome>file://${jcr.home}</jcrHome>
+								<jrcUserName>${jcr.userName}</jrcUserName>
+								<jcrPassword>${jcr.password}</jcrPassword>
+							</templateValues>
+							<outputDirectory>${jcr.environment.target}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			
 		</plugins>

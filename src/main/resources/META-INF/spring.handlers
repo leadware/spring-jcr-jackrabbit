@@ -19,5 +19,5 @@
 # limitations under the License.
 # #L%
 ###
-http\://spring.developpers.kube-cloud.com/schema/jcr=com.kubecloud.spring.jcr.handlers.JcrNamespaceHandler
-http\://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit=com.kubecloud.spring.jcr.jackrabbit.handlers.JackrabbitNamespaceHandler
+http\://spring.developpers.leadware.net/schema/jcr=net.leadware.spring.jcr.handlers.JcrNamespaceHandler
+http\://spring.developpers.leadware.net/schema/jcr/jackrabbit=net.leadware.spring.jcr.jackrabbit.handlers.JackrabbitNamespaceHandler

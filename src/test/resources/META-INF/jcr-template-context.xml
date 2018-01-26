@@ -25,14 +25,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jackrabbit="http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit"
-	xmlns:jcr="http://spring.developpers.kube-cloud.com/schema/jcr"
+	xmlns:jackrabbit="http://spring.developpers.leadware.net/schema/jcr/jackrabbit"
+	xmlns:jcr="http://spring.developpers.leadware.net/schema/jcr"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit http://spring.developpers.kube-cloud.com/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd
-		http://spring.developpers.kube-cloud.com/schema/jcr http://spring.developpers.kube-cloud.com/schema/jcr/spring-jcr.xsd
+		http://spring.developpers.leadware.net/schema/jcr/jackrabbit http://spring.developpers.leadware.net/schema/jcr/jackrabbit/spring-jcr-jackrabbit.xsd
+		http://spring.developpers.leadware.net/schema/jcr http://spring.developpers.leadware.net/schema/jcr/spring-jcr.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- Property Placeholder -->
@@ -57,7 +57,7 @@
 	
 	<!-- JCR Template -->
 	<bean id="jcrTemplate" 
-		  class="com.kubecloud.spring.jcr.JcrTemplateImpl" 
+		  class="net.leadware.spring.jcr.JcrTemplateImpl" 
 		  scope="singleton" 
 		  p:sessionFactory-ref="sessionFactory"/>
 
