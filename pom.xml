@@ -44,7 +44,7 @@
 	<description>Spring Integration for Java Content Repository</description>
 	
 	<!-- Project Version -->
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	
 	<!-- Packaging -->
 	<packaging>jar</packaging>
