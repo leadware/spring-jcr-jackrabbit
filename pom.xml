@@ -179,7 +179,6 @@
 		<!-- JUnit Version property -->
 		<junit.version>4.12</junit.version>
 		
-		
 		<!-- JCR Configuration File -->
 		<jcr.environment.target>${basedir}/src/test/resources/META-INF</jcr.environment.target>
 		
